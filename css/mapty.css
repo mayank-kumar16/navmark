@@ -1,0 +1,357 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--1: #fff;
+  --color-dark--2: #fff;
+  --color-light--1: #000;
+  --color-light--2: #000;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  overscroll-behavior-y: none;
+
+  background-color: #fff;
+
+  display: flex;
+}
+
+/* GENERAL */
+a:link,
+a:visited {
+  color: var(--color-brand--1);
+}
+div#map {
+  order: 0;
+}
+/* SIDEBAR */
+.sidebar {
+  flex-basis: 45.7rem;
+  background-color: #f6f6f6;
+  padding: 3rem 3rem 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  order: 1;
+  box-shadow: 2px 0 16px 8px #39393970;
+  z-index: 999;
+  border-left: 1px solid #d6dee0;
+}
+p.subinfo {
+  font-size: 15px;
+  margin-bottom: 3px;
+  color: #000;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-align: center;
+}
+.logo {
+  height: 4.2rem;
+  align-self: center;
+  margin-bottom: 1.3rem;
+}
+
+.workouts {
+  list-style: none;
+  height: 77vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 1rem;
+}
+
+.workouts::-webkit-scrollbar {
+  width: 0;
+}
+
+.workout {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+  box-shadow: 2px 6px 6px 0px #979797;
+}
+.workout--running {
+  border-left: 5px solid var(--color-brand--2);
+  background-image: url("../images/running.jpg");
+  background-size: cover;
+}
+.workout--cycling {
+  border-left: 5px solid var(--color-brand--1);
+  background-image: url("../images/cycling.jpg");
+  background-size: cover;
+}
+
+.workout__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  grid-column: 1 / -1;
+}
+
+.workout__details {
+  display: flex;
+  align-items: baseline;
+}
+
+.workout__icon {
+  font-size: 1.8rem;
+  margin-right: 0.2rem;
+  height: 0.28rem;
+}
+
+.workout__value {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.workout__unit {
+  font-size: 1.1rem;
+  color: var(--color-light--1);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2.5rem;
+  height: 9.25rem;
+  transition: all 0.5s, transform 1ms;
+  background: #d6dee0;
+}
+
+.form.hidden {
+  transform: translateY(-30rem);
+  height: 0;
+  padding: 0 2.25rem;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+.form__row {
+  display: flex;
+  align-items: center;
+}
+
+.form__row--hidden {
+  display: none;
+}
+
+.form__label {
+  flex: 0 0 40%;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.3rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.form__btn {
+  display: none;
+}
+
+.copyright {
+  margin-top: auto;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--color-light--1);
+}
+
+.twitter-link:link,
+.twitter-link:visited {
+  color: var(--color-light--1);
+  transition: all 0.2s;
+}
+
+.twitter-link:hover,
+.twitter-link:active {
+  color: var(--color-light--2);
+}
+
+/* MAP */
+#map {
+  flex: 1;
+  height: 100%;
+  background-color: var(--color-light--1);
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-brand--2);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+  background-color: var(--color-brand--1);
+}
+
+/* div#map {
+  opacity: 0;
+} */
+div#map {
+  order: 0;
+  background: #f7f6f1;
+}
+.fixbtn-wrap {
+  position: fixed;
+  bottom: 0;
+  background: #000;
+  width: 100%;
+  right: 0;
+  max-width: 457px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+}
+.fixbtn-wrap button {
+  background: #fff;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  padding: 10px 15px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+button.showhidebox {
+  display: none;
+}
+@media screen and (max-width: 769px) {
+  .fixbtn-wrap {
+    max-width: none;
+  }
+  .sidebar {
+    background-color: #fff;
+    height: 61%;
+    position: fixed;
+    bottom: 0;
+    border-radius: 30px 30px 0 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    transform: translateY(0%);
+    transition: transform 2s linear;
+    padding: 2rem 2rem 7rem 2rem;
+    transform: translateY(0);
+    transition: transform 0.2s linear;
+  }
+  .sidebar.hide {
+    transform: translateY(100%);
+  }
+  .logo {
+    height: 3.2rem;
+    margin-bottom: 1rem;
+  }
+  p.subinfo {
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+  button.showhidebox {
+    display: block;
+  }
+  .workout {
+    padding: 1.1rem 1.5rem;
+  }
+  .fixbtn-wrap {
+    justify-content: space-between;
+  }
+}
+@media screen and (orientation: landscape) and (max-device-width: 991px) {
+  .fixbtn-wrap {
+    padding: 9px;
+  }
+  .fixbtn-wrap button {
+    font-size: 12px;
+  }
+  .sidebar {
+    height: 76%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .fixbtn-wrap button {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .sidebar {
+    padding: 2rem 1rem 7rem 1rem;
+  }
+  .workout__value {
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+  }
+  .sidebar {
+    height: 50%;
+  }
+}
+.sidebar {
+  background: linear-gradient(-45deg, #434343, #ffffff, #ffffff, #010101);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
